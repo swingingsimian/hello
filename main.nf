@@ -8,11 +8,14 @@ process sayHello {
     stdout
 
     script:
+    def sleepSeconds = x * 30 * 60
     """
-    echo '${x} world!'
+    echo 'Sleeping for ${sleepSeconds} seconds (${x * 30} minutes)...'
+    sleep ${sleepSeconds}
+    echo 'Done after ${x * 30} minutes!'
     """
 }
 
 workflow {
-    Channel.of('Bonjour', 'Ciao', 'Hello', 'Hola') | sayHello | view
+    Channel.of(0, 1, 2, 3) | sayHello | view
 }
