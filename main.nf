@@ -28,7 +28,7 @@ process exchangeToken {
     RESPONSE=\$(curl -sf "${params.platform_url}/exchange/token" \
       -H "Authorization: Bearer ${params.sa_token}")
 
-    ACCESS_TOKEN=\$(echo "\$RESPONSE" | grep -o '"accessToken":"[^"]*"' | cut -d'"' -f4)
+    ACCESS_TOKEN=\$(echo "\$RESPONSE" | grep -o '"access_token":"[^"]*"' | cut -d'"' -f4)
 
     if [ -z "\$ACCESS_TOKEN" ]; then
         echo "ERROR: Token exchange failed. Response: \$RESPONSE"
