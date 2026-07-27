@@ -11,11 +11,11 @@
  * Usage:
  *   nextflow run swingingsimian/hello -r sa-token-exchange \
  *     --sa_token '<JWT from POST /orgs/{orgId}/service-accounts/{saId}/token>' \
- *     --platform_url 'http://localhost:8000'
+ *     --platform_url 'http://localhost:8080'
  */
 
 params.sa_token = null
-params.platform_url = 'http://localhost:8000'
+params.platform_url = 'http://localhost:8080'
 
 process exchangeToken {
     output:
