@@ -52,7 +52,7 @@ process callUserInfo {
 
     HTTP_CODE=\$(curl -s -o /tmp/response.json -w "%{http_code}" \
       "${params.platform_url}/api/user-info" \
-      -H "Authorization: Bearer \${token}")
+      -H "Authorization: Bearer ${token}")
 
     BODY=\$(cat /tmp/response.json)
     echo "HTTP \$HTTP_CODE"
